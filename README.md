@@ -1,19 +1,99 @@
-# SENG-LIVE-111323-Phase-1-JavaScript
-## Phase Level Objectives
-- [ ] Understand the fundamentals of JavaScript as a language, including functions and scope
-- [ ] Use data types and structures to solve problems in JavaScript
-- [ ] Identify and resolve bugs in code
-- [ ] Manipulate web pages using DOM
-- [ ] Use asynchronous JavaScript to retrieve data
+# JavaScript Fundamentals
+## SWBAT
+- [ ] Define what a variable is
+- [ ] Initialize variables in JavaScript
+- [ ] Retrieve and change the value of variables
+- [ ] Explain the difference between:
+    - [ ] Using `const` for declaring variables
+    - [ ] Using `let` for declaring variables
+- [ ] Use `console.log()` to inspect the values of variables and print those values to the console
+- [ ] Explain the difference between the following data types:
+    - [ ] `number`
+    - [ ] `string`
+    - [ ] `boolean`
+- Use the `typeof` operator to check the data type of a value or variable's value
+- Explain the difference between the following equality operators:
+    - [ ] strict equality operator `===`
+    - [ ] strict inequality operator `!==`
+    - [ ] loose equality operator `==`
+    - [ ] loose inequality operator `!=`
+- [ ] Review syntax differences between `if` / `else` statements, ternary expressions, and `switch` statements
+- Explain the difference between the following logical operators:
+    - [ ] `!` NOT
+    - [ ] `&&` AND
+    - [ ] `||` OR
 
 
-|No. | Lecture                          | Video 	| Starter 	| Solution 	|
-|----|------------------------------	|:-----:	|--------	|---------	|
-|1 | JavaScript Fundamentals            | | | |
-|2 | Functions & Scope                	| | | |
-|3 | DOM Manipulation                 	| | | |
-|4 | DOM Events                       	| | | |
-|5 | Communicating with the Server    	| | | |
-|6 | POST Requests                    	| | | |
-|7 | PATCH & DELETE Requests          	| | | |
-|8 | Communicating with External APIs 	| | | |
+## Deliverables
+
+Today we'll be building an app for a new restaurant, Flatburger, that displays a menu of food served at the restaurant. We will be using the concepts learned in this lecture to build out this app.
+
+1. Initialize a variable named `greeting` using `const` and assign it the value of the `string` "Welcome to Flatburger!"
+2. Initialize two variables named `num1` and `num2` using `let` and assign the value of a `number` to each of the two variables.
+3. Initialize a variable named `sum` and assign it the value resulting from the sum of values of the variables `num1` and `num2`.
+4. Initialize a variable named `sumString` whose value should incorporate the values of `num1`, `num2`, and `sum` into the string using string concatenation or string interpolation. For example, if `num1` has the value of 7, `num2` has the value 14, and `sum` has the value of 21, the value of `sumString` should be `7 + 14 = 21`.
+5. Write an `if` statement that will check if the value of `num1` is strictly equal to `7` or `49`. If `num1` is strictly equal to `7` or `49`, use `console.log()` to print the following string to the console: "That's a lucky number!"
+6. Write an `else` clause after the `if` statement that will print "That's not a lucky number." to the console using `console.log()`, if `num1` is not strictly equal to `7` or `49`.
+
+
+## Variables
+A variable is a container in which we can store values for later retrieval.
+
+Imagine a box that can hold any type of data: a number, a string, etc. We take some data that we want to store, place it inside the box, and hand the box off to the JavaScript engine, which stores it in memory. All done! Our data is safely cached until we need to access it again.
+
+This is how we initialize variables in JavaScript. First, we declare the variable, then we assign a value to it
+
+```
+const number = 7
+
+let phrase = "Hello World!"
+```
+
+When you declare a variable with const, it cannot be reasigned
+
+```
+const number = 7
+
+number = 8
+//=> Uncaught TypeError: Assignment to constant variable.
+```
+
+## Data Types
+Data types describe the different types or kinds of data that we will be working with and storing in variables. The three most basic data types in JavaScript are `number`, `string`, and `boolean`.
+
+A `number` is a numerical value such as `7` or `4.9`
+
+```
+const number = 7
+```
+
+A `string` is a series of characters such as `Hello World`. A string can be any text inside single quotes `''`, double quotes `""`, or backticks ` `` `
+
+```
+const phrase = 'Hello World!'
+
+const anotherPhrase = "Welcome to Flatiron School!"
+
+const yetAnotherPhrase = `Strings are awesome!`
+```
+
+A `boolean` value is one that can either be `true` or `false`
+
+```
+let isStudent = true
+
+let isHungry = false
+```
+
+The `typeof` operator can be used to check the data type of a value or variable's value
+
+```
+typeof 7
+//=> 'number'
+
+typeof "Hello"
+//=> 'string'
+
+typeof true
+//=> 'boolean'
+```
