@@ -4,24 +4,24 @@
 - [ ] Initialize variables in JavaScript
 - [ ] Retrieve and change the value of variables
 - [ ] Explain the difference between:
-    - [ ] Using `const` for declaring variables
-    - [ ] Using `let` for declaring variables
+    - Using `const` for declaring variables
+    - Using `let` for declaring variables
 - [ ] Use `console.log()` to inspect the values of variables and print those values to the console
 - [ ] Explain the difference between the following data types:
-    - [ ] `number`
-    - [ ] `string`
-    - [ ] `boolean`
-- Use the `typeof` operator to check the data type of a value or variable's value
-- Explain the difference between the following equality operators:
-    - [ ] strict equality operator `===`
-    - [ ] strict inequality operator `!==`
-    - [ ] loose equality operator `==`
-    - [ ] loose inequality operator `!=`
+    - `number`
+    - `string`
+    - `boolean`
+- [ ] Use the `typeof` operator to check the data type of a value or variable's value
+- [ ] Explain the difference between the following equality operators:
+    - strict equality operator `===`
+    - strict inequality operator `!==`
+    - loose equality operator `==`
+    - loose inequality operator `!=`
 - [ ] Review syntax differences between `if` / `else` statements, ternary expressions, and `switch` statements
-- Explain the difference between the following logical operators:
-    - [ ] `!` NOT
-    - [ ] `&&` AND
-    - [ ] `||` OR
+- [ ] Explain the difference between the following logical operators:
+    - `!` NOT
+    - `&&` AND
+    - `||` OR
 
 
 ## Deliverables
