@@ -26,7 +26,7 @@
 
 ## Deliverables
 
-Today we'll be building an app for a new restaurant, Flatburger, that displays a menu of food served at the restaurant. We will be using the concepts learned in this lecture to build out this app.
+Today we'll be reviewing JavaScript Fundamentals. Our goal is to build an app for a new restaurant, Flatburger, that displays a menu of food served at the restaurant. During each lecture, we'll be adding a new feature to this app.
 
 1. Initialize a variable named `greeting` using `const` and assign it the value of the `string` "Welcome to Flatburger!"
 2. Initialize two variables named `num1` and `num2` using `let` and assign the value of a `number` to each of the two variables.
