@@ -9,7 +9,7 @@
 
 |No. | Lecture                          | Video 	| Starter 	| Solution 	|
 |----|------------------------------	|:-----:	|--------	|---------	|
-|1 | JavaScript Fundamentals            | |[01_starter](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/01_starter)| |
+|1 | JavaScript Fundamentals            |[Video](https://www.youtube.com/watch?v=hoxU67YfpI4)|[01_starter](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/01_starter)|[01_solution](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/01_solution)|
 |2 | Functions & Scope                	| | | |
 |3 | DOM Manipulation                 	| | | |
 |4 | DOM Events                       	| | | |
