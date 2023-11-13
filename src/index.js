@@ -1,3 +1,8 @@
 // write your code here
 
-console.log("testing")
+// Deliverable 1
+const greeting = "Welcome to Flatburger!"
+
+// Deliverable 2
+let num1 = 10
+let num2 = 20
