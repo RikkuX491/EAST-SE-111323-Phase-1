@@ -1,4 +1,4 @@
-# JavaScript Fundamentals
+# Lecture # 1 - JavaScript Fundamentals
 ## SWBAT
 - [ ] Define what a variable is
 - [ ] Initialize variables in JavaScript
