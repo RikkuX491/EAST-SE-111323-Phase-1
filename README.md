@@ -1,103 +1,125 @@
 # JavaScript Fundamentals
 ## SWBAT
-- [ ] Define what a variable is
-- [ ] Initialize variables in JavaScript
-- [ ] Retrieve and change the value of variables
+- [ ] Describe what functions are and their central importance in JS
+- [ ] Understand how to declare and call functions
+- [ ] Review syntax differences between regular functions and arrow functions
 - [ ] Explain the difference between:
-    - Using `const` for declaring variables
-    - Using `let` for declaring variables
-- [ ] Use `console.log()` to inspect the values of variables and print those values to the console
-- [ ] Explain the difference between the following data types:
-    - `number`
-    - `string`
-    - `boolean`
-- [ ] Use the `typeof` operator to check the data type of a value or variable's value
-- [ ] Explain the difference between the following equality operators:
-    - strict equality operator `===`
-    - strict inequality operator `!==`
-    - loose equality operator `==`
-    - loose inequality operator `!=`
-- [ ] Review syntax differences between `if` / `else` statements, ternary expressions, and `switch` statements
-- [ ] Explain the difference between the following logical operators:
-    - `!` NOT
-    - `&&` AND
-    - `||` OR
+    - Block scope
+    - Function scope
+    - Global scope
+- [ ] Understand what it means that functions are first-class objects
+- [ ] Explain what a higher-order function is
+- [ ] Describe what arrays are and their central importance in JS
+- [ ] Understand how to iterate through an array using a `for` loop
 
 
 ## Deliverables
 
 We've been asked to build a website for a new restaurant, Flatburger, that displays a menu of food served at the restaurant.
 
-Today we will review JavaScript Fundamentals that may help us accomplish some tasks related to displaying data on the website.
+Today we will learn about Functions and Scope to accomplish some tasks related to displaying data on the website.
 
-1. Initialize a variable named `greeting` using `const` and assign it the value of the `string` "Welcome to Flatburger!"
-2. Initialize two variables named `num1` and `num2` using `let` and assign the value of a `number` to each of the two variables.
-3. Initialize a variable named `sum` using `let` and assign it the value resulting from the sum of values of the variables `num1` and `num2`.
-4. Initialize a variable named `sumString` using `let` whose value should incorporate the values of `num1`, `num2`, and `sum` into the string using string concatenation or string interpolation. For example, if `num1` has the value of 7, `num2` has the value 14, and `sum` has the value of 21, the value of `sumString` should be `7 + 14 = 21`.
-5. Write an `if` statement that will check if the value of `num1` is strictly equal to `7` or `49`. If `num1` is strictly equal to `7` or `49`, use `console.log()` to print the following string to the console: "That's a lucky number!"
-6. Write an `else` clause after the `if` statement that will print "That's not a lucky number." to the console using `console.log()`.
-
-Note: The code inside the `else` clause should run if the `if` statement's condition is not true.
+1. Create a function named `welcomeToFlatburger()` that prints the `string` "Welcome to Flatburger!" to the console using `console.log()`
+2. Create a function named `printGreeting()` has one parameter named `greeting`. The function should print the value of the parameter `greeting` to the console using `console.log()`.
+3. Create an arrow function named `getSum()` that has two parameters `num1` and `num2`. The `return` value of this function should be the value resulting from the sum of values of the parameters `num1` and `num2`.
+4. Create a function named `getSumString()` that has three parameters: A parameter named `sum` whose value should be a function, and two parameters `num1` and `num2` whose values should be `number`s. The `return` value of this function should incorporate the values of `num1`, `num2`, and the `return` value of `sum()` into the string using string concatenation or string interpolation. For example, if `num1` has the value of 7, `num2` has the value 14, and the `return` value of `sum()` has the value of 21, the `return` value of `getSumString()` should be `7 + 14 = 21`.
+5. Write a `for` loop that will iterate through an array that contains the following `string`s: "Flatburger", "Maple Bacon Burger", "Mushroom Burger", "Avocado Bun Burger", "Ramen Burger". The `for` loop should print each of the `string`s from the array using `console.log()`.
 
 
-## Variables
-A variable is a container in which we can store values for later retrieval.
-
-Imagine a box that can hold any type of data: a number, a string, etc. We take some data that we want to store, place it inside the box, and hand the box off to the JavaScript engine, which stores it in memory. All done! Our data is safely cached until we need to access it again.
-
-This is how we initialize variables in JavaScript. First, we declare the variable, then we assign a value to it
+## Functions
+Functions are like a little program. They consist of a set of statements/tasks and return a value or undefined. 
 
 ```
-const number = 7
+// This is an example of a function declaration.
+// This function is returning the string of 'Good morning!'
 
-let phrase = "Hello World!"
-```
+function sayGoodMorning() {
+    return 'Good morning!'
+}
 
-When you declare a variable with const, it cannot be reasigned
+// This is a function reference but it doesn't actually run the function. 
 
-```
-const number = 7
+sayGoodMorning
 
-number = 8
-//=> Uncaught TypeError: Assignment to constant variable.
-```
+// To run or call or invoke the function (all the same thing) - write the function's name and add a pair of ()
 
-## Data Types
-Data types describe the different types or kinds of data that we will be working with and storing in variables. The three most basic data types in JavaScript are `number`, `string`, and `boolean`.
+sayGoodMorning()
 
-A `number` is a numerical value such as `7` or `4.9`
+// This function prints the string of 'hello' to the console using console.log() but returns undefined because it does not have the return keyword.
 
-```
-const number = 7
-```
+function sayGoodNight(){
+    console.log('Good Night!')
+}
 
-A `string` is a series of characters such as `Hello World`. A string can be any text inside single quotes `''`, double quotes `""`, or backticks ` `` `
+sayGoodNight()
 
-```
-const phrase = 'Hello World!'
-
-const anotherPhrase = "Welcome to Flatiron School!"
-
-const yetAnotherPhrase = `Strings are awesome!`
-```
-
-A `boolean` value is one that can either be `true` or `false`
+// console logging and returning are not the same thing. A return value becomes the value of an invoked function, while console.log() only logs something to the console.
 
 ```
-let isStudent = true
 
-let isHungry = false
-```
-
-The `typeof` operator can be used to check the data type of a value or variable's value
+Functions can take unique localized variables called parameters. When the function is invoked, it's passed an argument that becomes the parameter's value.
 
 ```
-typeof 7
-//=> 'number'
 
-typeof "Hello"
-//=> 'string'
+function squareNumber(num){
+    
+    // num is the parameter, it is scoped to the inside of the function
 
-typeof true
-//=> 'boolean'
+    return num * num
+}
+
+// 7 is the argument here. The value of num in the above function becomes 7.
+
+squareNumber(7)
+
+// functions can take multiple parameters.
+
+function subtract(num1, num2){
+    return num1 - num2
+}
+
+subtract(12, 4)
+
+```
+
+Arrow functions are another way to declare functions with some added benefits.
+
+```
+// An arrow function can avoid {} if its return is done on a single line or with ()
+// An arrow function with a single parameter doesn't need the () around the parameter.
+
+const welcomeMessage = name => `Welcome to Flatiron School, ${name}! Have a great day!`
+
+const favoriteSeason = season => (
+     `My favorite season is ${season}`
+)
+
+favoriteSeason('summer')
+
+```
+
+
+## Callbacks and HigherOrder Functions 
+
+Functions in JavaScript are treated like any other variable. When functions are treated like this, we refer to them as First class. One of the most significant benefits of this is that functions in JavaScript can be passed as arguments to other functions.
+
+```
+// A function that returns a function is called a Higher-Order Function.
+
+const outsideFunction = () => {
+    return () => {
+        // inside function
+    }
+}
+
+// A function that is taken as an argument is a callback 
+
+const fullMessage = (greeting, name) => {
+    return `${greeting(name)} I love JavaScript!`
+}
+
+const welcomeMessage = name => `Welcome to Flatiron School, ${name}! Have a great day!`
+
+fullMessage(welcomeMessage, 'Bruce Wayne')
+
 ```
