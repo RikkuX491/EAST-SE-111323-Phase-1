@@ -61,3 +61,11 @@ let sum = num1 + num2
 
 // Deliverable 4
 let sumString = `${num1} + ${num2} = ${sum}`
+
+// Deliverable 5
+if (num1 === 7 || num1 === 49){
+    console.log("That's a lucky number!");
+}
+else { 
+    console.log("That's not a lucky number")
+}
