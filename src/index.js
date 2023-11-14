@@ -1,3 +1,5 @@
+console.log("testing")
+
 // write your code here
 
 // Lecture notes
