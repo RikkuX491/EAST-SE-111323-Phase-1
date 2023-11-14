@@ -107,3 +107,34 @@ function welcomeToFlatburger(){
 }
 
 welcomeToFlatburger()
+
+// Deliverable 2
+function printGreeting(greeting) {
+    console.log(greeting)
+}
+
+printGreeting("Hello Flatiron!")
+
+// Deliverable 3
+const getSum = (num1, num2) => num1 + num2
+
+// const num1 = 45
+// const num2 = 67
+
+console.log(getSum(45, 67))
+
+// Deliverable 4
+function getSumString(sum, num1, num2) {
+  return `${num1} + ${num2} = ${sum(num1, num2)}`
+}
+
+console.log(getSumString(getSum, 49, 34))
+
+// Deliverable 5
+const burgerNames = ["Flatburger", "Maple Bacon Burger", "Mushroom Burger", "Avocado Bun Burger", "Ramen Burger"]
+
+for(let index = 0; index < burgerNames.length; index++){
+    console.log(burgerNames[index])
+}
+
+// console.log(burgerNames[burgerNames.length - 1])
