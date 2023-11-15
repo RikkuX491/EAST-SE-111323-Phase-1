@@ -63,7 +63,7 @@ const otherFoods = [
 // console.log(restaurantMenu)
 
 // .querySelector() - finds 1 element
-const detailImage = document.querySelector('.detail-image')
+// const detailImage = document.querySelector('.detail-image')
 // console.log(detailImage)
 
 // .querySelectorAll()
@@ -156,3 +156,29 @@ otherFoods.forEach((food) => {
     imgElement.src = food.image
     restaurantMenu.appendChild(imgElement)
 })
+
+// Deliverable 3
+// const detailImage = document.getElementsByClassName('detail-image')[0]
+const foodDetailImage = document.querySelector('.detail-image')
+foodDetailImage.src = burgers[0].image
+
+// Deliverable 4
+const foodDetailName = document.querySelector('.name')
+foodDetailName.textContent = burgers[0].name
+
+// Deliverable 5
+const burgerDescription = document.querySelector('#description-display')
+burgerDescription.textContent = burgers[0].description
+
+// Deliverable 6
+const restaurantMenuImages = document.querySelectorAll('div#restaurant-menu img')
+restaurantMenuImages.forEach(image => {
+    image.style = "border-style: solid; border-color: red; border-width: 3px"
+})
+
+// Deliverable 7
+const burgerImages = document.getElementsByClassName('burger')
+
+for(let index = 0; index < burgerImages.length; index++){
+    burgerImages[index].style.borderColor = "blue"
+}
