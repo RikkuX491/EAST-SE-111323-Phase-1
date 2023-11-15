@@ -10,6 +10,24 @@
 - [ ] Remove content with `.remove()`
 - [ ] Explain the dangers of `.innerHTML` and when it's safe to use
 
+## Deliverables 
+We've been asked to build a website for a new restaurant, Flatburger, that displays a menu of food served at the restaurant.
+
+We will be adding food images to the restaurant's menu and displaying information for one of the menu items including the name, image, and description for the menu item. We will be using the concepts learned in this lecture to build out this app.
+
+1. Given an array stored in a variable named `burgers`, write a `for` loop that will iterate through the `burgers` array. The `for` loop should do the following within its block of code for each of the burgers:
+    - Create an `img` element using `document.createElement()`
+    - Set the `src` attribute of the `img` element to contain the image of the current burger
+    - Use `.appendChild()` to append the `img` element to the element with the id of `restaurant-menu`
+2. Given an array stored in a variable named `otherFoods`, use the `.forEach()` array iterator method to iterate through the `otherFoods` array. For each of the burgers:
+    - Create an `img` element using `document.createElement()`
+    - Set the `className` attribute of the `img` element to have the value of `'burger'`
+    - Set the `src` attribute of the `img` element to contain the image of the current food
+    - Use `.appendChild()` to append the `img` element to the DOM element with the id of `restaurant-menu`
+3. Search for the DOM element with the class of `detail-image`. Set the `src` attribute of this `img` element to contain the image of the first burger from the `burgers` array
+4. Search for the DOM element with the class of `name`. Set the `textContent` attribute of this DOM element to have the value of the name of the first burger from the `burgers` array
+5. Search for the DOM element with the id of `description-display`. Set the `textContent` attribute of this DOM element to have the value of the description of the first burger from the `burgers` array
+
 
 ## Document Object Model
 The DOM is an interface for web documents. A tree of Node objects that represent a web page. These Nodes allow access and change to the Document. 
