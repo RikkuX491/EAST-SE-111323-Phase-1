@@ -55,3 +55,104 @@ const otherFoods = [
 ]
 
 // write your code here
+
+// Lecture code
+
+// .getElementById() - finds 1 element by its id
+// const restaurantMenu = document.getElementById('restaurant-menu')
+// console.log(restaurantMenu)
+
+// .querySelector() - finds 1 element
+const detailImage = document.querySelector('.detail-image')
+// console.log(detailImage)
+
+// .querySelectorAll()
+const divElements = document.querySelectorAll('div')
+// console.log(divElements)
+
+for(let index = 0; index < divElements.length; index++){
+    // console.log(divElements[index])
+}
+
+divElements.forEach((div) => {
+    // console.log(div)
+})
+
+// .getElementsByClassName()
+const nameElements = document.getElementsByClassName('name')
+// console.log(nameElements)
+
+for(let index = 0; index < nameElements.length; index++){
+    // console.log(nameElements[index])
+}
+
+// for loop vs .forEach()
+for(let index = 0; index < burgers.length; index++){
+    // console.log(burgers[index])
+}
+
+burgers.forEach((burger) => {
+    // console.log(burger.description)
+})
+
+// Iterating through a string
+const word = "Welcome"
+for(let index = 0; index < word.length; index++){
+    // console.log(word[index])
+}
+
+const pizza = {
+    name: "Pepperoni",
+    price_per_slice: 4.99,
+    description: "A pizza with pepperoni on it"
+}
+
+const pizza2 = {
+    name: "Buffalo Chicken",
+    price_per_slice: 6.99,
+    description: "Buffalo Chicken Pizza"
+}
+
+// console.log(pizza['name'])
+// console.log(pizza2.name)
+
+// Using .remove() to remove an element from the DOM
+const headerElement = document.querySelector('header')
+// headerElement.remove()
+
+// Using document.createElement() to create a new element
+const h1 = document.createElement('h1')
+
+// Using .textContent to set the text content of an element
+h1.textContent = "Hello! Welcome to Flatburger!"
+// console.log(h1)
+
+// Using .appendChild to append an element as a child of another element
+// restaurantMenu.appendChild(h1)
+// restaurantMenu.append("Greetings!", "Have a good day!")
+
+// .textContent vs .innerText vs .innerHTML
+const h2 = document.createElement('h2')
+// h2.textContent = "<span>Hello\nWorld!</span>"
+// h2.innerText = "<span>Hello\nWorld!</span>"
+h2.innerHTML = "<span>Hello\nWorld!</span>"
+// document.body.appendChild(h2)
+
+// Deliverables - Solution code
+
+// Deliverable 1
+const restaurantMenu = document.getElementById('restaurant-menu')
+
+for(let index = 0; index < burgers.length; index++){
+    const imgElement = document.createElement('img')
+    imgElement.className = 'burger'
+    imgElement.src = burgers[index].image
+    restaurantMenu.appendChild(imgElement)
+}
+
+// Deliverable 2
+otherFoods.forEach((food) => {
+    const imgElement = document.createElement('img')
+    imgElement.src = food.image
+    restaurantMenu.appendChild(imgElement)
+})
