@@ -1,125 +1,85 @@
-# Lecture # 2 - Functions & Scope
+# Lecture # 3 - DOM Manipulation
 ## SWBAT
-- [ ] Describe what functions are and their central importance in JS
-- [ ] Understand how to declare and call functions
-- [ ] Review syntax differences between regular functions and arrow functions
-- [ ] Explain the difference between:
-    - Block scope
-    - Function scope
-    - Global scope
-- [ ] Understand what it means that functions are first-class objects
-- [ ] Explain what a higher-order function is
-- [ ] Describe what arrays are and their central importance in JS
-- [ ] Understand how to iterate through an array using a `for` loop
+- [ ] Explain what the DOM is
+- [ ] Traverse the DOM tree
+- [ ] Select single DOM elements with `.querySelector()` and `.getElementById()`
+- [ ] Select multiple elements with `.querySelectorAll()` and `.getElementsByClassName()`
+- [ ] Add text content to an element with `.textContent`
+- [ ] Create elements with `document.createElement()`
+- [ ] Append elements to the DOM with `.appendChild()` and `.append()`
+- [ ] Remove content with `.remove()`
+- [ ] Explain the dangers of `.innerHTML` and when it's safe to use
 
 
-## Deliverables
+## Document Object Model
+The DOM is an interface for web documents. A tree of Node objects that represent a web page. These Nodes allow access and change to the Document. 
 
-We've been asked to build a website for a new restaurant, Flatburger, that displays a menu of food served at the restaurant.
+## Selecting DOM elements
+To manipulate the DOM, we need to use methods to traverse it and find the elements we are looking for. 
 
-Today we will learn about Functions and Scope to accomplish some tasks related to displaying data on the website.
-
-1. Create a function named `welcomeToFlatburger()` that prints the `string` "Welcome to Flatburger!" to the console using `console.log()`
-2. Create a function named `printGreeting()` has one parameter named `greeting`. The function should print the value of the parameter `greeting` to the console using `console.log()`.
-3. Create an arrow function named `getSum()` that has two parameters `num1` and `num2`. The `return` value of this function should be the value resulting from the sum of values of the parameters `num1` and `num2`.
-4. Create a function named `getSumString()` that has three parameters: A parameter named `sum` whose value should be a function, and two parameters `num1` and `num2` whose values should be `number`s. The `return` value of this function should incorporate the values of `num1`, `num2`, and the `return` value of `sum()` into the string using string concatenation or string interpolation. For example, if `num1` has the value of 7, `num2` has the value 14, and the `return` value of `sum()` has the value of 21, the `return` value of `getSumString()` should be `7 + 14 = 21`.
-5. Write a `for` loop that will iterate through an array that contains the following `string`s: "Flatburger", "Maple Bacon Burger", "Mushroom Burger", "Avocado Bun Burger", "Ramen Burger". The `for` loop should print each of the `string`s from the array using `console.log()`.
-
-
-## Functions
-Functions are like a little program. They consist of a set of statements/tasks and return a value or undefined. 
 
 ```
-// This is an example of a function declaration.
-// This function is returning the string of 'Good morning!'
+// Single elements
+// document.querySelector() will traverse the DOM and return the first element of the matching tag, class, or id passed as an argument
+// 'tag' looks for the first matching tag
+document.querySelector('div')
 
-function sayGoodMorning() {
-    return 'Good morning!'
-}
+// '.class' will look for the first matching class
+document.querySelector('.someClass')
 
-// This is a function reference but it doesn't actually run the function. 
+// '#id' will look for the first matching id
+document.querySelector('#someID')
 
-sayGoodMorning
+// document.getElementById() traverse the DOM and returns the first element with the matching id. IDs should be unique, so it should be the only element with that ID. Note: the '#' is not necessary. 
+document.getElementById('someId')
 
-// To run or call or invoke the function (all the same thing) - write the function's name and add a pair of ()
 
-sayGoodMorning()
+// Multiple elements
+// document.querySelectorAll() gets multiple elements of the matching tag or class 
+// It returns a NodeList, which can be iterated over with .forEach() and for loops. 
+document.querySelectorAll('div')
 
-// This function prints the string of 'hello' to the console using console.log() but returns undefined because it does not have the return keyword.
-
-function sayGoodNight(){
-    console.log('Good Night!')
-}
-
-sayGoodNight()
-
-// console logging and returning are not the same thing. A return value becomes the value of an invoked function, while console.log() only logs something to the console.
+// document.getElementsByTagName() and document.getElementsByClassName() get every element by the matching tag/class.
+// They both return HTML collections which can only be iterated over with for loops.
+document.getElementsByTagName()
+document.getElementsByClassName()
 
 ```
 
-Functions can take unique localized variables called parameters. When the function is invoked, it's passed an argument that becomes the parameter's value.
+## Changing and Creating DOM Elements
+Once a DOM element is selected, there are several ways of changing the content in that Node.
 
 ```
+const div = document.querySelector('div')
 
-function squareNumber(num){
-    
-    // num is the parameter, it is scoped to the inside of the function
+// Text content returns the full text of a node. It's less performance heavy and works for all nodes. 
 
-    return num * num
-}
+div.textContent = 'some text'
 
-// 7 is the argument here. The value of num in the above function becomes 7.
 
-squareNumber(7)
+// Inner text only grabs visible text, is performance heavy, and only works on HTML elements
+div.innerText = 'some text'
 
-// functions can take multiple parameters.
+// document.createElement() creates a new element when provided a tag name
+// A created element can be set with text content just as a element selected by the DOM can.
+const newDiv = document.createElement('div')
+newDiv.textContent = 'my text'
 
-function subtract(num1, num2){
-    return num1 - num2
-}
+// innerHTML can add HTML content to an element. Use of this should be limited as it's slow, it clears out everything, removes event listeners, and most importantly, it's vulnerable to cross-site-scripting attacks
 
-subtract(12, 4)
-
-```
-
-Arrow functions are another way to declare functions with some added benefits.
-
-```
-// An arrow function can avoid {} if its return is done on a single line or with ()
-// An arrow function with a single parameter doesn't need the () around the parameter.
-
-const welcomeMessage = name => `Welcome to Flatiron School, ${name}! Have a great day!`
-
-const favoriteSeason = season => (
-     `My favorite season is ${season}`
-)
-
-favoriteSeason('summer')
+div.innerHTML = '<p>Use this with caution</p>'
 
 ```
 
 
-## Callbacks and HigherOrder Functions 
-
-Functions in JavaScript are treated like any other variable. When functions are treated like this, we refer to them as First class. One of the most significant benefits of this is that functions in JavaScript can be passed as arguments to other functions.
+## Removing elements
+Once selected, elements can be removed in a couple ways.
 
 ```
-// A function that returns a function is called a Higher-Order Function.
+// will remove the element
+div.remove()
 
-const outsideFunction = () => {
-    return () => {
-        // inside function
-    }
-}
-
-// A function that is taken as an argument is a callback 
-
-const fullMessage = (greeting, name) => {
-    return `${greeting(name)} I love JavaScript!`
-}
-
-const welcomeMessage = name => `Welcome to Flatiron School, ${name}! Have a great day!`
-
-fullMessage(welcomeMessage, 'Bruce Wayne')
+// will clear the element of all its nested children
+div.innerHTML = ''
 
 ```
