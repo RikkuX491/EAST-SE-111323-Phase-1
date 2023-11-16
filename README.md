@@ -1,105 +1,54 @@
-# Lecture # 3 - DOM Manipulation
+# Lecture # 4 - DOM Events
 ## SWBAT
-- [ ] Explain what the DOM is
-- [ ] Traverse the DOM tree
-- [ ] Select single DOM elements with `.querySelector()` and `.getElementById()`
-- [ ] Select multiple elements with `.querySelectorAll()` and `.getElementsByClassName()`
-- [ ] Add text content to an element with `.textContent`
-- [ ] Create elements with `document.createElement()`
-- [ ] Append elements to the DOM with `.appendChild()` and `.append()`
-- [ ] Remove content with `.remove()`
-- [ ] Explain the dangers of `.innerHTML` and when it's safe to use
+- [ ] Explain the importance of event handling in modern web applications
+- [ ] Explain how callback functions are used with event listeners
+- [ ] Write the code to add `click` and `submit` event listeners to elements using the `.addEventListener()` method
+- [ ] Explain the purpose of the `.preventDefault()` method
 
-## Deliverables 
+## Deliverables
 We've been asked to build a website for a new restaurant, Flatburger, that displays a menu of food served at the restaurant.
 
-We will be adding food images to the restaurant's menu and displaying information for one of the menu items including the name, image, and description for the menu item. We will be using the concepts learned in this lecture to build out this app.
+We will be adding a feature that displays information for one of the menu items including the name, image, and description for the menu item within a food detail section of the page when the image for the menu item is clicked within the menu. We will also be adding a feature that allows a user to add a new food to the menu using an HTML form. We will be using the concepts learned in this lecture to build out this app.
 
-1. Given an array stored in a variable named `burgers`, write a `for` loop that will iterate through the `burgers` array. The `for` loop should do the following within its block of code for each of the burgers:
-    - Create an `img` element using `document.createElement()`
-    - Set the `className` attribute of the `img` element to have the value of `'burger'`
-    - Set the `src` attribute of the `img` element to contain the image of the current burger
-    - Use `.appendChild()` to append the `img` element to the element with the id of `restaurant-menu`
-2. Given an array stored in a variable named `otherFoods`, use the `.forEach()` array iterator method to iterate through the `otherFoods` array. For each of the burgers:
-    - Create an `img` element using `document.createElement()`
-    - Set the `src` attribute of the `img` element to contain the image of the current food
-    - Use `.appendChild()` to append the `img` element to the DOM element with the id of `restaurant-menu`
-3. Search for the DOM element with the class of `detail-image`. Set the `src` attribute of this `img` element to contain the image of the first burger from the `burgers` array
-4. Search for the DOM element with the class of `name`. Set the `textContent` attribute of this DOM element to have the value of the name of the first burger from the `burgers` array
-5. Search for the DOM element with the id of `description-display`. Set the `textContent` attribute of this DOM element to have the value of the description of the first burger from the `burgers` array
-6. Use `document.querySelectorAll()` to search for the `img` elements inside of the `div` with the id of `restaurant-menu`. For each of those `img` elements, set the `style` attribute to have the value of `"border-style: solid; border-color: red; border-width: 3px"`
-7. Use `document.getElementsByClassName()` to search for the `img` elements with the class name of `burger`. For each of those `img` elements, set the `style.borderColor` attribute to have the value of `"blue"`
+1. Add a `click` event listener to each of the `img` elements in the `div#restaurant-menu` element that displays the details (name, image, and description) for a specific food, depending on which `img` element is clicked. You should be adding to the code in the callback function inside of `foods.forEach()` since that is where each of the `img` elements are being created
+2. Add a `submit` event listener to the `form` element with the id of `new-food` that will add a new `img` element to the `div#restaurant-menu` element when the form is submitted. The value of the `src` for this new `img` element depends on the information that the user enters in the `input` element with the id of `new-image`. Additionally, clicking on this new `img` element with result in displaying the details (name, image, and description) for that food. You will need to use the information that the user enters in the `input` elements with the ids of `new-name`, `new-image`, and `new-description` to fully build out this feature. Don't forget to use the `.preventDefault()` method to prevent the page from refreshing when the form is submitted
 
 
-## Document Object Model
-The DOM is an interface for web documents. A tree of Node objects that represent a web page. These Nodes allow access and change to the Document. 
+## Events
+When the user interacts with the DOM, it fires events that trigger an effect in our JavaScript code that can do something. Such as updating the DOM or adding content to the database. 
 
-## Selecting DOM elements
-To manipulate the DOM, we need to use methods to traverse it and find the elements we are looking for. 
+To pick up events, our code must 'listen' for the event. The `.addEventListener()` method will do just that. It takes 2 arguments, the first is the event it's listening for, and the second is the function that will run once the event is triggered.
 
+```js
+div.addEventListener('click', () => console.log('hi'))
 
-```
-// Single elements
-// document.querySelector() will traverse the DOM and return the first element of the matching tag, class, or id passed as an argument
-// 'tag' looks for the first matching tag
-document.querySelector('div')
-
-// '.class' will look for the first matching class
-document.querySelector('.someClass')
-
-// '#id' will look for the first matching id
-document.querySelector('#someID')
-
-// document.getElementById() traverse the DOM and returns the first element with the matching id. IDs should be unique, so it should be the only element with that ID. Note: the '#' is not necessary. 
-document.getElementById('someId')
-
-
-// Multiple elements
-// document.querySelectorAll() gets multiple elements of the matching tag or class 
-// It returns a NodeList, which can be iterated over with .forEach() and for loops. 
-document.querySelectorAll('div')
-
-// document.getElementsByTagName() and document.getElementsByClassName() get every element by the matching tag/class.
-// They both return HTML collections which can only be iterated over with for loops.
-document.getElementsByTagName()
-document.getElementsByClassName()
+// When events are triggered, the event object is passed as an argument to the event handler function (the callback passed as the second arg to addEventListener)
+div.addEventListener('click', (e) => console.log(e))
 
 ```
 
-## Changing and Creating DOM Elements
-Once a DOM element is selected, there are several ways of changing the content in that Node.
-
-```
-const div = document.querySelector('div')
-
-// Text content returns the full text of a node. It's less performance heavy and works for all nodes. 
-
-div.textContent = 'some text'
+There are many event types: [Events](https://developer.mozilla.org/en-US/docs/Web/Events)
 
 
-// Inner text only grabs visible text, is performance heavy, and only works on HTML elements
-div.innerText = 'some text'
+## Forms
+Forms can have a variety of user inputs users can interact with.
+The submit event can be used to retrieve the value of those inputs. 
 
-// document.createElement() creates a new element when provided a tag name
-// A created element can be set with text content just as a element selected by the DOM can.
-const newDiv = document.createElement('div')
-newDiv.textContent = 'my text'
+When a form submits, it will, by default, try to send a request and refresh the page. To prevent that, we need to call the `.preventDefault()` method on the event object. Afterward, the event can be used to grab the form values through the target attribute.
 
-// innerHTML can add HTML content to an element. Use of this should be limited as it's slow, it clears out everything, removes event listeners, and most importantly, it's vulnerable to cross-site-scripting attacks
-
-div.innerHTML = '<p>Use this with caution</p>'
-
+```html
+<form>
+  <input type="text" name='favColor'/>
+  <input type="submit" />
+</form>
 ```
 
+```js
+const form = document.querySelector('form')
 
-## Removing elements
-Once selected, elements can be removed in a couple ways.
-
-```
-// will remove the element
-div.remove()
-
-// will clear the element of all its nested children
-div.innerHTML = ''
-
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  // Here we are using the name property from the form to target the specific input.
+  console.log(e.target.favColor.value)
+})
 ```
