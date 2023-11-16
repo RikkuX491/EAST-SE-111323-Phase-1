@@ -1,4 +1,4 @@
-const burgers = [
+const foods = [
     {
         name: "Flatburger",
         image: "./assets/food/flatburger.jpeg",
@@ -23,10 +23,7 @@ const burgers = [
         name: "Ramen Burger",
         image: "./assets/food/ramen-burger.jpeg",
         description: "If you love ramen and burgers, what are you waiting for? Order our exclusive ramen burger now!"
-    }
-]
-
-const otherFoods = [
+    },
     {
         name: "French Fries",
         image: "./assets/food/french-fries.jpeg",
@@ -54,4 +51,25 @@ const otherFoods = [
     }
 ]
 
-// write your code here
+const restaurantMenu = document.getElementById('restaurant-menu')
+
+// function addFoodImageToMenu(food){
+//     const foodImage = document.createElement('img')
+//     foodImage.src = food.image
+//     restaurantMenu.appendChild(foodImage)
+// }
+
+foods.forEach(food => {
+    const foodImage = document.createElement('img')
+    foodImage.src = food.image
+    restaurantMenu.appendChild(foodImage)
+})
+
+const foodDetailImage = document.querySelector('.detail-image')
+foodDetailImage.src = foods[0].image
+
+const foodName = document.querySelector('.name') 
+foodName.textContent = foods[0].name
+
+const foodDescriptionDisplay = document.querySelector('#description-display')
+foodDescriptionDisplay.textContent = foods[0].description
