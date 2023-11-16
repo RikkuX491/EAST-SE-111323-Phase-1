@@ -53,12 +53,6 @@ const foods = [
 
 const restaurantMenu = document.getElementById('restaurant-menu')
 
-// function addFoodImageToMenu(food){
-//     const foodImage = document.createElement('img')
-//     foodImage.src = food.image
-//     restaurantMenu.appendChild(foodImage)
-// }
-
 foods.forEach(food => {
     const foodImage = document.createElement('img')
     foodImage.src = food.image
