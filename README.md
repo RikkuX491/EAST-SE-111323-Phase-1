@@ -31,7 +31,7 @@ We will be using the `fetch()` function to make a `GET` request to a backend ser
 1. Use the `fetch()` function to make a `GET` request to [http://localhost:3000/foods](http://localhost:3000/foods) to retrieve the food data from the server.
 2. Once you have retrieved the food data from the server, use the `.forEach()` array iterator method to iterate through the array of foods. For each of the foods:
     - Create an `img` element using `document.createElement()`
-    - Set the `src` attribute of the `img` element to contain the image of the current food
+    - Set the `src` attribute of the `img` element to contain the image of the food
     - Use `.appendChild()` to append the `img` element to the DOM element with the id of `restaurant-menu`
 3. Refactor your code from Deliverable # 2 into a function named `addFoodImageToRestaurantMenu()`
 4. Display the details for the first food from the array of foods retrieved from the server. The food details should display immediately when the page loads. To build out this feature, make sure to do the following:
