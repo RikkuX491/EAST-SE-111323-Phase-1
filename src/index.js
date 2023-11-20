@@ -55,10 +55,10 @@ newFoodForm.addEventListener('submit', (event) => {
     })
     .then(response => {
         if(response.ok === true){
-            response.json().then(newFood => {
+            response.json().then(newFoodData => {
 
                 // Pessimistic Rendering
-                addFoodImageToRestaurantMenu(newFood)
+                addFoodImageToRestaurantMenu(newFoodData)
             })
         }
         else{
