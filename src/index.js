@@ -1,13 +1,8 @@
-// write your code here
-
-// console.log("BEFORE THE FETCH")
 const restaurantMenu = document.getElementById('restaurant-menu')
 
-// Deliverable 1
 fetch('http://localhost:3000/foods')
 .then(response => response.json())
 .then(foods => {
-
     displayFoodDetails(foods[0])
 
     foods.forEach(food => {
@@ -15,19 +10,15 @@ fetch('http://localhost:3000/foods')
     })
 })
 
-// Deliverable 2 & 3
 function addFoodImageToRestaurantMenu(food){
     const imgElement = document.createElement('img')
     imgElement.src = food.image
-    restaurantMenu.appendChild(imgElement)
-
-    // Deliverable 6
     imgElement.addEventListener('click', () => {
         displayFoodDetails(food)
     })
+    restaurantMenu.appendChild(imgElement)
 }
 
-// Deliverable 4 & 5
 function displayFoodDetails(food){
     const foodDetailImageElement = document.getElementsByClassName('detail-image')[0]
     foodDetailImageElement.src = food.image
@@ -37,4 +28,23 @@ function displayFoodDetails(food){
     foodDescriptionDisplayElement.textContent = food.description
 }
 
-// console.log("AFTER THE FETCH")
+const newFoodForm = document.getElementById('new-food')
+newFoodForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const newNameInputElement = document.getElementById('new-name')
+    const newImageInputElement = document.getElementById('new-image')
+    const newDescriptionInputElement = document.getElementById('new-description')
+
+    const newFood = {
+        name: newNameInputElement.value,
+        image: newImageInputElement.value,
+        description: newDescriptionInputElement.value
+    }
+
+    addFoodImageToRestaurantMenu(newFood)
+
+    // write your code here
+
+    newFoodForm.reset()
+})
