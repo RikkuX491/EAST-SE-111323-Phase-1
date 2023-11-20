@@ -14,6 +14,6 @@
 |3 | DOM Manipulation                 	|[Video](https://www.youtube.com/watch?v=LAa_-tyXWLg)|[03_starter](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/03_starter)|[03_solution](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/03_solution)|
 |4 | DOM Events                       	|[Video](https://www.youtube.com/watch?v=2JP9SJJKP0k)|[04_starter](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/04_starter)|[04_solution](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/04_solution)|
 |5 | Communicating with the Server    	|[Video](https://www.youtube.com/watch?v=bwP2hRIgxN0)|[05_starter](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/05_starter)|[05_solution](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/05_solution)|
-|6 | POST Requests                    	| |[06_starter](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/06_starter)|[06_solution](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/06_solution)|
+|6 | POST Requests                    	|[Video](https://www.youtube.com/watch?v=rtFQO2-vTX8)|[06_starter](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/06_starter)|[06_solution](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/06_solution)|
 |7 | PATCH & DELETE Requests          	| | | |
 |8 | Communicating with External APIs 	| | | |
