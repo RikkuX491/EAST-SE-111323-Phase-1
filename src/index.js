@@ -42,10 +42,6 @@ newFoodForm.addEventListener('submit', (event) => {
         description: newDescriptionInputElement.value
     }
 
-    // Optimistic Rendering
-    // addFoodImageToRestaurantMenu(newFood)
-
-    // write your code here
     fetch('http://localhost:3000/foods', {
         method: "POST",
         headers: {
@@ -56,8 +52,6 @@ newFoodForm.addEventListener('submit', (event) => {
     .then(response => {
         if(response.ok === true){
             response.json().then(newFoodData => {
-
-                // Pessimistic Rendering
                 addFoodImageToRestaurantMenu(newFoodData)
             })
         }
@@ -68,3 +62,5 @@ newFoodForm.addEventListener('submit', (event) => {
 
     newFoodForm.reset()
 })
+
+// write your code here
