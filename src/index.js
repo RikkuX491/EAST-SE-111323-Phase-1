@@ -62,5 +62,3 @@ newFoodForm.addEventListener('submit', (event) => {
 
     newFoodForm.reset()
 })
-
-// write your code here
