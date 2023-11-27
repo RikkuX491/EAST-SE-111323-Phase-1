@@ -144,3 +144,74 @@ function updateRestaurantMenu(){
         addFoodImageToRestaurantMenu(food)
     })
 }
+
+
+// fetch( 'https://pokeapi.co/api/v2/pokemon/bulbasaur')
+//     .then( response => response.json())
+//     .then( data => console.log(data))
+
+console.log(apiKEY)
+
+function renderResultCard(itemInfo){
+    console.log(itemInfo.title)
+
+    // article as a parent container
+    const bookCard = document.createElement("article")
+
+    // h2 , 2 p, img
+    const bookTitle = document.createElement("h2")
+    const bookAuthor = document.createElement("p")
+    const bookDescription = document.createElement("p")
+    const bookImage = document.createElement("img")
+
+
+    //add content using textContent
+    bookTitle.textContent = itemInfo.title
+    bookAuthor.textContent = itemInfo.authors
+    bookDescription.textContent = itemInfo.description
+    itemInfo.imageLinks? bookImage.src = itemInfo.imageLinks.smallThumbnail
+:null
+    // wrap element together into `article` element before appending it
+    bookCard.append(bookTitle, bookAuthor, bookDescription, bookImage)
+
+    //append the article in the section 
+    document.querySelector("section").append(bookCard)
+}
+
+const handleAPIQuery = (e) => {
+    e.preventDefault()
+
+    const search = document.querySelector("#search").value //id
+    console.log(search)
+    //console.log(e.target.search.value) //name
+    console.log("hello burger!!!")
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}:keyes&key=${apiKEY}`)
+        .then(response => response.json())
+        .then(data => {
+            data.items.map(eachItem => renderResultCard(eachItem.volumeInfo))})
+
+}
+
+function handleRenderSearch(){
+    console.log("hello")
+    const sectionElement = document.createElement("section")
+
+    sectionElement.innerHTML = `
+        <form id="api-search">
+            <label> API Search <label>
+            <input type="text" name="search" id="search"> </input>
+            <input type="submit"> </input>
+        </form>
+    `
+
+    const bodyElement = document.querySelector("body")
+    console.log(bodyElement)
+    bodyElement.appendChild(sectionElement)
+    document.querySelector("#api-search").addEventListener("submit", handleAPIQuery)
+
+    //class .
+    //id #
+}
+
+handleRenderSearch()
+
