@@ -1,7 +1,7 @@
 // write your code here
 
 // Lecture notes
-console.log(4 === 4)
+console.log(6 === 6)
 console.log(4 !== 4)
 console.log(4 == '4')
 console.log(4 != '4')
